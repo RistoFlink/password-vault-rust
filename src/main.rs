@@ -38,7 +38,19 @@ fn main() {
 
             },
             "2" => {
-
+                clr();
+                let services = read_passwords_from_file().unwrap_or_else(|err| {
+                    eprintln!("Error reading passwords: {}", err);
+                    Vec::new()
+                });
+                for item in &services {
+                    println!(
+                        "Service = {}
+                        - Username: {}
+                        - Password: {}",
+                        item.service, item.username, item.password
+                    );
+                } 
             },
             "3" => {
 
