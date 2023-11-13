@@ -35,7 +35,14 @@ fn main() {
 
         match choice.trim() {
             "1" => {
-
+                clr();
+                let entry = ServiceInfo::new(
+                    prompt("Service:"),
+                    prompt("Username"),
+                    prompt("Password")
+                );
+                println!("Entry added succesfully!");
+                entry.write_to_file();
             },
             "2" => {
                 clr();
@@ -71,9 +78,13 @@ fn main() {
                 }
             },
             "4" => {
-
+                clr();
+                println!("Bye!");
+                break;
             },
+            _ => println!("Invalid command!"),
         }
+        println!("\n\n");
 
     }
 }
